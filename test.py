@@ -34,6 +34,9 @@ dirs = list((digital_blur_dir, natural_blur_dir))
 for dir in dirs:
     if dir == digital_blur_dir:
         flag = 1
+    else:
+        flag = 0
+        
     for file in os.listdir(dir):
         if file != ".DS_Store":
             img_path = dir + file
@@ -43,8 +46,9 @@ for dir in dirs:
             # print(natural_blur["Image Name"])
             if flag == 0:
                 blur = natural_blur[natural_blur["Image Name"] == file.split(".")[0]].iloc[0]['Blur Label'] 
-            else:
+            elif flag == 1:
                 blur = digital_blur[digital_blur["MyDigital Blur"] == file].iloc[0]['Blur Label']
+            
             if blur == 1:
                 y_test.append(1)
             else:
@@ -53,3 +57,9 @@ for dir in dirs:
             print(file, "=> NADA")
     print("--- Loaded => ", dir, " ---")
 print("--- Testset Loaded ---")
+
+# with open("X_test.pkl", "wb") as picklefile:
+#     pickle.dump(X_test, picklefile)
+
+# with open("y_test.pkl", "wb") as picklefile:
+#     pickle.dump(y_test, picklefile)
