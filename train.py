@@ -2,6 +2,7 @@
 # 3 April 2022
 # Image Blur Detection On CERTH_ImageBlurDetection Dataset - @Task
 
+# importing necessary libraries
 import numpy as np
 import pandas as pd
 
@@ -33,3 +34,11 @@ for dir in dirs:
             print(file, "=> NADA")
     print("--- Loaded => ", dir, " ---")
 print("--- Trainset Loaded ---")
+
+# Create picklefile for X_train
+with open("X_train.pkl", "wb") as picklefile:
+    pickle.dump(X_train, picklefile)
+
+# Create picklefile for y_train
+with open("y_train.pkl", "wb") as picklefile:
+    pickle.dump(y_train, picklefile)
