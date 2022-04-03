@@ -36,7 +36,7 @@ for dir in dirs:
         flag = 1
     else:
         flag = 0
-        
+
     for file in os.listdir(dir):
         if file != ".DS_Store":
             img_path = dir + file
@@ -58,8 +58,8 @@ for dir in dirs:
     print("--- Loaded => ", dir, " ---")
 print("--- Testset Loaded ---")
 
-# with open("X_test.pkl", "wb") as picklefile:
-#     pickle.dump(X_test, picklefile)
+with open("X_test.pkl", "wb") as picklefile:
+    pickle.dump(X_test, picklefile)
 
-# with open("y_test.pkl", "wb") as picklefile:
-#     pickle.dump(y_test, picklefile)
+with open("y_test.pkl", "wb") as picklefile:
+    pickle.dump(y_test, picklefile)
