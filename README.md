@@ -1,5 +1,8 @@
 # image-blur-detection
 
+### To get all the Dependencies (run the command) after forking / cloning [this](https://github.com/sauravpanchal/image-blur-detection.git) repository :
+`pip install requirements.txt`
+
 ### Approach - 1 : Convolutional Neural Network (CNN / ConvNets)
 
 (Step-1) Load & Pickle Train dataset (run the command) :
