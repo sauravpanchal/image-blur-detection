@@ -27,3 +27,7 @@ to be non-blurry. This model gave accuracy of around **87.23%**. It's also, perf
 (Step-1) To run the script for Laplacian approach (run the command) :
 
 `python Laplacian.py`
+
+<hr>
+
+##### NOTE : While running scripts you can ignore / supress warnings / informations which arises due to difference in API's and other dependencies
