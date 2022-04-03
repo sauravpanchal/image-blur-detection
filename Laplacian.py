@@ -2,6 +2,7 @@
 # 3 April 2022
 # Image Blur Detection On CERTH_ImageBlurDetection Dataset - @Task by CloudSEK (Karnataka)
 
+# import necessary modules
 import numpy as np
 import pandas as pd
 import cv2
@@ -13,18 +14,15 @@ import pickle
 from keras.preprocessing import image
 from sklearn.metrics import accuracy_score
 
+# defining / initializing variables
 input_size = (512, 512)
-
-def get_variance_of_laplacian(image):
-	# compute the Laplacian of the image and then return the focus
-	# measure, which is simply the variance of the Laplacian
-	return cv2.Laplacian(image, cv2.CV_64F).var()
-
-#accuracy_score(y, y_pred)
-
 y_test = []
 y_pred = []
 threshold = 435
+
+def get_variance_of_laplacian(image):
+	# returns the focus measure of image (variance of laplacian)
+	return cv2.Laplacian(image, cv2.CV_64F).var()
 
 digital_blur = pd.read_excel("C:\\Users\\saura\\Documents\\Datasets\CERTH_ImageBlurDataset\\EvaluationSet\\DigitalBlurSet.xlsx")
 natural_blur = pd.read_excel("C:\\Users\\saura\\Documents\\Datasets\CERTH_ImageBlurDataset\\EvaluationSet\\NaturalBlurSet.xlsx")
@@ -35,7 +33,7 @@ natural_blur['Image Name'] = natural_blur['Image Name'].apply(lambda x : x.strip
 
 dir = "C:\\Users\\saura\\Documents\\Datasets\CERTH_ImageBlurDataset\\EvaluationSet\\DigitalBlurSet\\"
 
-# load image arrays
+# load images
 for file in os.listdir(dir):
     if file != '.DS_Store':
         image_path = dir + file
@@ -59,7 +57,7 @@ print("--- Evaluated/Processed => ", dir, " ---")
 
 dir = "C:\\Users\\saura\\Documents\\Datasets\CERTH_ImageBlurDataset\\EvaluationSet\\NaturalBlurSet\\"
 
-# load image arrays
+# load images
 for file in os.listdir(dir):
     if file != '.DS_Store':
         image_path = dir + file
@@ -80,7 +78,9 @@ for file in os.listdir(dir):
 
 print("--- Evaluated/Processed => ", dir, " ---")
 
+# load pickle file (y_test)
 with open('y_test.pkl', 'rb') as picklefile:
     y_test = pickle.load(picklefile)
 
+# accuracy 
 print("Accuracy => ", (accuracy_score(y_test, y_pred)) * 100)

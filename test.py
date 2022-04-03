@@ -12,9 +12,9 @@ import pickle
 
 from keras.preprocessing import image
 
+# initializing / defining variables
 input_size = (192, 192)
 flag = 0
-
 X_test = []
 y_test = []
 
@@ -58,6 +58,7 @@ for dir in dirs:
     print("--- Loaded => ", dir, " ---")
 print("--- Testset Loaded ---")
 
+# creating pickle files (dumping features and labels)
 with open("X_test.pkl", "wb") as picklefile:
     pickle.dump(X_test, picklefile)
 

@@ -12,15 +12,16 @@ import pickle
 
 from keras.preprocessing import image
 
+# initializing / defining variables
 X_train = list()
 y_train = list()
-
 input_size = (192, 192)
 
 artificial_dir = "C:\\Users\\saura\\Documents\\Datasets\\CERTH_ImageBlurDataset\\TrainingSet\\Artificially-Blurred\\"
 natural_dir = "C:\\Users\\saura\\Documents\\Datasets\\CERTH_ImageBlurDataset\\TrainingSet\\Naturally-Blurred\\"
 undistorted_dir = "C:\\Users\\saura\\Documents\\Datasets\\CERTH_ImageBlurDataset\\TrainingSet\\Undistorted\\"
 
+# list of directory variables where it's paths are stored
 dirs = list((artificial_dir, natural_dir, undistorted_dir))
 
 for dir in dirs:
@@ -35,10 +36,10 @@ for dir in dirs:
     print("--- Loaded => ", dir, " ---")
 print("--- Trainset Loaded ---")
 
-# Create picklefile for X_train
+# Create picklefile X_train
 with open("X_train.pkl", "wb") as picklefile:
     pickle.dump(X_train, picklefile)
 
-# Create picklefile for y_train
+# Create picklefile y_train
 with open("y_train.pkl", "wb") as picklefile:
     pickle.dump(y_train, picklefile)
