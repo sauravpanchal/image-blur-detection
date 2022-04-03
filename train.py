@@ -15,7 +15,7 @@ from keras.preprocessing import image
 X_train = list()
 y_train = list()
 
-input_size = (96, 96)
+input_size = (192, 192)
 
 artificial_dir = "C:\\Users\\saura\\Documents\\Datasets\\CERTH_ImageBlurDataset\\TrainingSet\\Artificially-Blurred\\"
 natural_dir = "C:\\Users\\saura\\Documents\\Datasets\\CERTH_ImageBlurDataset\\TrainingSet\\Naturally-Blurred\\"
@@ -28,7 +28,7 @@ for dir in dirs:
         if file != ".DS_Store":
             img_path = dir + file
             img = image.load_img(img_path, target_size = input_size)
-            X_train.append((1/255) * np.asarray(img))
+            X_train.append(np.asarray(img))
             y_train.append(1)
         else:
             print(file, "=> NADA")

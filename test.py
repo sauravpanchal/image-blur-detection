@@ -12,7 +12,7 @@ import pickle
 
 from keras.preprocessing import image
 
-input_size = (96, 96)
+input_size = (192, 192)
 flag = 0
 
 X_test = []
