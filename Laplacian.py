@@ -24,7 +24,7 @@ def get_variance_of_laplacian(image):
 
 y_test = []
 y_pred = []
-threshold = 400
+threshold = 435
 
 digital_blur = pd.read_excel("C:\\Users\\saura\\Documents\\Datasets\CERTH_ImageBlurDataset\\EvaluationSet\\DigitalBlurSet.xlsx")
 natural_blur = pd.read_excel("C:\\Users\\saura\\Documents\\Datasets\CERTH_ImageBlurDataset\\EvaluationSet\\NaturalBlurSet.xlsx")
@@ -38,13 +38,12 @@ dir = "C:\\Users\\saura\\Documents\\Datasets\CERTH_ImageBlurDataset\\EvaluationS
 # load image arrays
 for file in os.listdir(dir):
     if file != '.DS_Store':
-        imagepath = dir + file
-        img = image.load_img(imagepath, target_size= input_size)
-        #X_test.append(np.asarray(img))
+        image_path = dir + file
+        img = image.load_img(image_path, target_size= input_size)
         blur = digital_blur[digital_blur['MyDigital Blur'] == file].iloc[0]['Blur Label']
         gray = cv2.cvtColor(np.asarray(img), cv2.COLOR_BGR2GRAY)
-        fm = get_variance_of_laplacian(gray)
-        if fm < threshold:
+        var = get_variance_of_laplacian(gray)
+        if var < threshold:
             y_pred.append(1)
         else:
             y_pred.append(0)
@@ -63,13 +62,12 @@ dir = "C:\\Users\\saura\\Documents\\Datasets\CERTH_ImageBlurDataset\\EvaluationS
 # load image arrays
 for file in os.listdir(dir):
     if file != '.DS_Store':
-        imagepath = dir + file
-        img = image.load_img(imagepath, target_size=input_size)
-        #X_test.append(np.asarray(img))
+        image_path = dir + file
+        img = image.load_img(image_path, target_size=input_size)
         blur = natural_blur[natural_blur['Image Name'] == file.split('.')[0]].iloc[0]['Blur Label']
         gray = cv2.cvtColor(np.asarray(img), cv2.COLOR_BGR2GRAY)
-        fm = get_variance_of_laplacian(gray)
-        if fm < threshold:
+        var = get_variance_of_laplacian(gray)
+        if var < threshold:
             y_pred.append(1)
         else:
             y_pred.append(0)
