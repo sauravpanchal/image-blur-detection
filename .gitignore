@@ -133,3 +133,6 @@ dmypy.json
 
 # .csv files
 *.csv
+
+# .h5 files
+*.h5
