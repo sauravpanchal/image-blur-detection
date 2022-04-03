@@ -1,6 +1,6 @@
 # image-blur-detection
 
-### Approach - 1 : Convolutional Neural Network
+### Approach - 1 : Convolutional Neural Network (CNN / ConvNets)
 
 (Step-1) Load & Pickle Train dataset (run the command) :
 
