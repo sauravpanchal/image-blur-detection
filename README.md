@@ -17,6 +17,7 @@ Accuracy can further be improved by increase input dimensions (of first layer) /
 
 `python CNN.py`
 
+<hr>
 ### Approach - 2 : Variance of Laplacian
 
 Here we calculate variance of Laplcian; giving value which defines blurry metric. If it's below certain threshol (here it's 400) image can be classified as burry else it is going 
