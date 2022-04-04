@@ -11,14 +11,14 @@
 
 (Step-2) Load & Pickle Test dataset (run the command) :
 
-`python testdata.py`
+`python test.py`
 
 A Convolutional Neural Network is trained over [CERTH_ImageBlurDataset](http://mklab.iti.gr/files/imageblur/CERTH_ImageBlurDataset.zip) (~3.7 GB) yielding accuracy of **58.18%** on evaluation dataset.
 Accuracy can further be improved by increase input dimensions (of first layer) / model's complexity or tweaking number of epochs.
 
 (Step-3) To train the CNN model (run the command) :
 
-`python CNN.py`
+`python model.py`
 
 <hr>
 
